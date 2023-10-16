@@ -11,14 +11,14 @@ void puts_half(char *str)
     int i;
     int start;
 
-    // Calculate the length of the string
+    /* Calculate the length of the string */
     while (str[length] != '\0')
         length++;
 
-    // Calculate the starting index for the second half
+    /* Calculate the starting index for the second half */
     start = (length + 1) / 2;
 
-    // Print the second half of the string
+    /* Print the second half of the string */
     for (i = start; i < length; i++)
         _putchar(str[i]);
 
