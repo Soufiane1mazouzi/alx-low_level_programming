@@ -1,4 +1,3 @@
-Copy code
 #include "main.h"
 #include <limits.h>
 
