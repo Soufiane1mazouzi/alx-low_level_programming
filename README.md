@@ -1,1 +1,1 @@
-notempty
+about pointers and arrays
