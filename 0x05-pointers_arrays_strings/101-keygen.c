@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-    char password[65]; // 64 characters + '\0'
+    char password[65]; /* 64 characters + '\0' */
     int i, sum, last;
 
     srand(time(NULL));
