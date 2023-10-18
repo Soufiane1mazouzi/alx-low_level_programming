@@ -1,5 +1,10 @@
 #include "main.h"
 
+int _putchar(char c)
+{
+    return write(1, &c, 1);
+}
+
 char *rot13(char *s)
 {
     char *ptr = s;
