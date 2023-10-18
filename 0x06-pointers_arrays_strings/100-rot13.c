@@ -1,24 +1,36 @@
 #include "main.h"
 
-int _putchar(char c)
-{
-    return write(1, &c, 1);
-}
-
+/**
+ * rot13 - Encode a string using ROT13
+ * @s: The input string to be encoded
+ *
+ * Return: A pointer to the encoded string.
+ */
 char *rot13(char *s)
 {
     char *ptr = s;
     int i;
+    char normal[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
     for (i = 0; s[i] != '\0'; i++)
     {
         char c = s[i];
-        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        int j = 0;
+        int found = 0;
+
+        while (normal[j] != '\0')
         {
-            char base = (c >= 'a' && c <= 'z') ? 'a' : 'A';
-            *ptr = (c - base + 13) % 26 + base;
+            if (c == normal[j])
+            {
+                *ptr = rot13[j];
+                found = 1;
+                break;
+            }
+            j++;
         }
-        else
+
+        if (found == 0)
         {
             *ptr = c;
         }
