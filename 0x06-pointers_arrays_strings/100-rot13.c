@@ -9,19 +9,21 @@
 char *rot13(char *s)
 {
 	char *original = s;
-	char rot13[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot13_encoded[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	int i;
+	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j;
 
 	while (*s)
 	{
-		for (i = 0; rot13[i]; i++)
+		i = 0;
+		while (input[i])
 		{
-			if (*s == rot13[i])
+			if (*s == input[i])
 			{
-				*s = rot13_encoded[i];
+				*s = output[i];
 				break;
 			}
+			i++;
 		}
 		s++;
 	}
