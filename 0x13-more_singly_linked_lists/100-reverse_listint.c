@@ -1,24 +1,25 @@
 #include "lists.h"
 
 /**
- * pop_listint - deletes the head node of a linked list
- * @head: pointer to the first element in the linked list
+ * reverse_listint - reverses a linked list
+ * @head: pointer to the first node in the list
  *
- * Return: the data inside the elements that was deleted,
- * or 0 if the list is empty
+ * Return: pointer to the first node in the new list
  */
-int pop_listint(listint_t **head)
+listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *temp;
-	int num;
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
 
-	if (!head || !*head)
-		return (0);
+	while (*head)
+	{
+		next = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = next;
+	}
 
-	num = (*head)->n;
-	temp = (*head)->next;
-	free(*head);
-	*head = temp;
+	*head = prev;
 
-	return (num);
+	return (*head);
 }
